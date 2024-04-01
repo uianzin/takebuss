@@ -1,9 +1,9 @@
-let h2 = document.querySelector('h2');
+const map = L.map('map').setView([-7.08699,-41.4699],16)
+const layer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
 
-function success(pos){  //função de sucesso//
-    console.log(pos.coords.latitude, pos.coords.longitude);
-    h2.textContent = `Latitude:${pos.coords.latitude}, Longitude:${pos.coords.longitude}´;
-}
+layer.addTo(map)
 
-
-navigator.geolocation.getCurrentPosition(success); //() o que vai retornar da longitude//
+const marker = L.marker(-7.082833113180291, -41.466503114007324)
