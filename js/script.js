@@ -1,9 +1,17 @@
-const map = L.map('map').setView([-7.08699,-41.4699],16)
+const positions = [[-7.086247640641737, -41.48670568014414],[-7.0703841059934325, -41.40269430171519]]
+const map = L.map('map').setView(positions[0],16)
 const layer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
+	maxZoom: 20,
+	
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 
 layer.addTo(map)
 
-const marker = L.marker(-7.082833113180291, -41.466503114007324)
+const marker = L.marker(positions[0])
+marker.addTo(map)
+
+L.marker(positions[positions.length-1]).addTo(map)
+
+const polyline = L.polyline(positions,{xolor:'#F00'})
+polyline.addTo(map)
