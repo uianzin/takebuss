@@ -1,17 +1,19 @@
-const positions = [[-7.086247640641737, -41.48670568014414],[-7.0703841059934325, -41.40269430171519]]
-const map = L.map('map').setView(positions[0],16)
-const layer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 20,
-	
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-});
+var map = L.map('map').setView([-7.077647281493683, -7.077647281493683], 13);
 
-layer.addTo(map)
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
 
-const marker = L.marker(positions[0])
-marker.addTo(map)
+var marker = L.marker([-7.07842002482361, -41.461887554543864]).addTo(map);
+var marker = L.marker([-7.070149657896613, -41.40217760233757], {
+    
+}).addTo(map);
+var polygon = L.polygon([
+    [51.509, -0.08],
+    [51.503, -0.06],
+    [51.51, -0.047]
+]).addTo(map);
 
-L.marker(positions[positions.length-1]).addTo(map)
-
-const polyline = L.polyline(positions,{xolor:'#F00'})
+const polyline = L.polyline(positions,{color:'#FOO'})
 polyline.addTo(map)
