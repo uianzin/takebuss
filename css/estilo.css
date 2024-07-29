@@ -1,6 +1,25 @@
-/* index */
+
+
+body {
+  background-color: #11516e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 .header_alinhamento {
   display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
 }
 
 .head_1 {
@@ -13,21 +32,95 @@
   display: inline-block;
 }
 
-.botao_login {
-  background-color: #0130ff;
-  color: white;
-  padding: 10px 20px;
+.login_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  background-color: #f9f9f9;
+}
+
+.login_container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.input_text {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 94%;
+  max-width: 1000px;
+}
+.botao_registrar{
+  width: 100%;
+  max-width: 1000px;
+  padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin: 2px 0;
+}
+.botao_login, .botao_google {
+  width: 100%;
+  max-width: 100%;
+  padding: 3%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2% 0;
+}
+
+.botao_login {
+  background-color: #0130ff;
+  color: white;
 }
 
 .botao_login:hover {
   background-color: #04a0e9;
 }
 
-/* teste para definir loc*/
-#map { 
-  height: 1000px; 
+.botao_google {
+  background-color: #db4437;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
- 
+
+.botao_google:hover {
+  background-color: #c33c2e;
+}
+
+.google_icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.botao_registrar {
+  background-color: #0f9d58;
+  color: white;
+}
+
+.botao_registrar:hover {
+  background-color: #0a7d45;
+}
+
+
+@media (max-width: 600px) {
+  .login_container {
+    width: 90%;
+  }
+}
