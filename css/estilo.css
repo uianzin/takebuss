@@ -233,6 +233,7 @@
   display: flex;
   text-align: center;
   justify-content: center;
+  margin-left: 9rem;
 }
 
 .casa_horarios {
@@ -242,9 +243,15 @@
 }
 
 .home {
-  margin-left: 5rem;
   font-size: 25px;
   color: white;
+  margin-left: 6rem;
+  margin-top: 1rem;
+}
+
+.horarios-rotas {
+  display: flex;  
+  justify-content: center;
 }
 
 .horarios {
@@ -294,7 +301,8 @@
 .esquerda {
   display: flex;
   justify-content: center;
-  margin-left: 15%;
+  margin-left: 2%;
+
 }
 
 .hora_ida {
