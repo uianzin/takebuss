@@ -200,3 +200,118 @@
 
   font-size: 32px; /* Tamanho do ícone */
 }
+
+/* tela de Horários */
+.contenho {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.ho {
+  border-style: solid;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-color: #0821e2;
+  display: flex;
+  justify-content: center;
+}
+
+.rar {
+  border-style: solid;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-color: cyan;
+  display: flex;
+  justify-content: center;
+}
+
+.nucleo {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.casa_horarios {
+  margin-left: 1rem;
+  color: #fff;
+  font-size: 30px;
+}
+
+.home {
+  margin-left: 5rem;
+  font-size: 25px;
+  color: white;
+}
+
+.horarios {
+  background-color: #c7d7e8;
+}
+
+.tabela {
+  width: 200px;
+  border: 0px solid black;
+  padding: 25px;
+  margin: 0px;
+  text-align:center
+}
+
+.fechar {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.aquilo {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: -1%;
+  margin-top: -6%;
+  margin-left: 40%;
+  margin-right: 40%;
+ 
+
+}
+
+.aquilo p {
+  margin: 15px;
+}
+
+.cerol {
+  font-size: 35px;
+  color: blue;
+  margin-left: 20rem;
+}
+
+.praq {
+  font-size: 35px;
+
+}
+
+.esquerda {
+  display: flex;
+  justify-content: center;
+  margin-left: 15%;
+}
+
+.hora_ida {
+  text-align: 10px;
+}
+
+.rotasifpi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-rotas {
+  width: 20rem;
+  padding-bottom: 2rem;
+}
+/* tela de Horários */
+
+
