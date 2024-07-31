@@ -19,6 +19,28 @@ const layer  =L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 layer.addTo(map)
 
+var personIcon = L.divIcon({
+            className: 'leaflet-person-icon',
+            html: '👤', // Emoji de pessoa como exemplo
+            iconSize: [20, 20] // Tamanho do ícone
+        });
+
+        // Adiciona o marcador ao mapa
+        L.marker([-7.081471604582143, -41.4569965280629], { icon: personIcon }).addTo(map)
+            .bindPopup('Aqui está um ícone de pessoa!')
+            .openPopup();
+
+			var busIcon = L.divIcon({
+				className: 'leaflet-bus-icon',
+				html: '🚌', // Emoji de ônibus como exemplo
+				iconSize: [60, 60] // Tamanho do ícone
+			});
+	
+			// Adiciona o marcador ao mapa
+			L.marker([-7.075832026141602, -41.46716427395609], { icon: busIcon }).addTo(map)
+				.bindPopup('Aqui está um ícone de ônibus!')
+				.openPopup();
+
 const marker= L.marker(positions[0])
 marker.addTo(map) 
 
@@ -27,4 +49,6 @@ marker2.addTo(map)
 
 const polyline = L.polyline(positions,{color:'#F00'})
 polyline.addTo(map)
+
+
 
