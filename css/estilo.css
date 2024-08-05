@@ -1,5 +1,6 @@
 
-body{
+
+/*body{
   background-color: #11516e;
   display: flex;
   flex-direction: column;
@@ -9,7 +10,7 @@ body{
   margin: 0;
   font-family: Arial, sans-serif;
 }
-
+*/
 .header_alinhamento {
   display: flex;
   justify-content: center;
@@ -320,3 +321,5 @@ body{
   padding-bottom: 2rem;
 }
 /* tela de Horários */
+
+
