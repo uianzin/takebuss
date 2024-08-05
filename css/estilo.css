@@ -1,5 +1,5 @@
-/* Estilos base para o body */
-body {
+
+body{
   background-color: #11516e;
   display: flex;
   flex-direction: column;
@@ -10,40 +10,32 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Alinhamento do header */
 .header_alinhamento {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
 }
 
-/* Cabeçalhos */
-.head_1, .head_2 {
-  border-bottom: 2px solid;
+.head_1 {
+  border-bottom: 2px solid rgb(0, 195, 255);
   display: inline-block;
 }
 
-.head_1 {
-  border-color: rgb(0, 195, 255);
-}
-
 .head_2 {
-  border-color: rgb(0, 67, 192);
+  border-bottom: 2px solid rgb(0, 67, 192);
+  display: inline-block;
 }
 
-/* Container de login e registro */
 .login_container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 0; /* Remover a margem superior para centralização */
+  margin-top: 20px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -53,30 +45,37 @@ body {
   background-color: #f9f9f9;
 }
 
-/* Títulos dentro do container */
 .login_container h2 {
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
 }
 
-/* Estilos dos campos de input */
 .input_text {
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 94%; /* Garantir que o input utilize toda a largura do container */
+  width: 94%;
+  max-width: 1000px;
 }
-
-/* Botões */
-.botao_registrar, .botao_login, .botao_google {
+.botao_registrar{
   width: 100%;
+  max-width: 1000px;
   padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 5px 0; /* Ajustar margens para espaço entre botões */
+  margin: 2px 0;
+}
+.botao_login, .botao_google {
+  width: 100%;
+  max-width: 100%;
+  padding: 3%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 2% 0;
 }
 
 .botao_login {
@@ -118,79 +117,122 @@ body {
   background-color: #0a7d45;
 }
 
-/* Estilos para a tela de teste */
-#map {
-  height: 23rem;
-  margin-top: 1rem;
-}
 
-.cabeçalho_rota3 {
+
+
+/*tela de teste*/
+
+#map{
+  height:23rem;
+  margin-top:1rem;
+  }  
+  
+  .cabeçalho_rota3 {
+      display: flex;
+      margin-left: 42rem;
+      font-size:1.5rem ;
+  }
+  .primeiro {
+  
+      border-style: solid;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-color: #0821e2;
+      display: flex;
+      justify-content: center;
+  }
+  
+  .segundo {
+      border-style: solid;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-color: cyan;
+      display: flex;
+      justify-content: center;
+  }
+  
+  .casa_tamanho ion-icon {
+      font-size: 2rem;
+      margin-top: -60px;
+      margin-right: 300px;
+      margin-left: 51rem;
+      display: flex;
+      justify-content: center;
+  }
+  
+  .onibus_tamanho ion-icon {
+       font-size: 2rem;
+       color: #0821e2;
+  }
+  
+  .seta ion-icon{
+       font-size: 2rem;
+  }
+  
+  .comunidade ion-icon{
+      font-size: 2rem;
+  }
+/*fim da tela teste*/
+
+.leaflet-person-icon {
+  width: 100px;
+  height: 100px;
   display: flex;
   justify-content: center;
-  font-size: 1.5rem;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  border: 2px solid #000;
+  font-size: 24px;
 }
 
-.primeiro, .segundo {
-  border-style: solid;
-  border-top: none;
-  border-right: none;
-  border-left: none;
+.leaflet-bus-icon {
+  width: 50px;
+  height: 50px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: hsl(100, 10%, 20px); /* Cor do ônibus */
+  border-radius: 10px;
+
+  font-size: 32px; /* Tamanho do ícone */
 }
 
-.primeiro {
-  border-color: #0821e2;
-}
-
-.segundo {
-  border-color: cyan;
-}
-
-.casa_tamanho ion-icon {
-  font-size: 2rem;
-  margin: -60px 0 0 0;
-  display: flex;
-  justify-content: center;
-}
-
-.onibus_tamanho ion-icon, .seta ion-icon, .comunidade ion-icon {
-  font-size: 2rem;
-}
-
-.onibus_tamanho ion-icon {
-  color: #0821e2;
-}
-
-/* Estilos para horários */
+/* tela de Horários */
 .contenho {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
-.ho, .rar {
+.ho {
   border-style: solid;
   border-top: none;
   border-right: none;
   border-left: none;
+  border-color: #0821e2;
   display: flex;
   justify-content: center;
 }
 
-.ho {
-  border-color: #0821e2;
-}
-
 .rar {
+  border-style: solid;
+  border-top: none;
+  border-right: none;
+  border-left: none;
   border-color: cyan;
+  display: flex;
+  justify-content: center;
 }
 
 .nucleo {
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-left: 0; /* Ajustar margens */
+  margin-left: 9rem;
 }
 
 .casa_horarios {
@@ -202,11 +244,12 @@ body {
 .home {
   font-size: 25px;
   color: white;
-  margin: 1rem 0 0 0;
+  margin-left: 6rem;
+  margin-top: 1rem;
 }
 
 .horarios-rotas {
-  display: flex;
+  display: flex;  
   justify-content: center;
 }
 
@@ -216,9 +259,10 @@ body {
 
 .tabela {
   width: 200px;
+  border: 0px solid black;
   padding: 25px;
-  margin: 0;
-  text-align: center;
+  margin: 0px;
+  text-align:center
 }
 
 .fechar {
@@ -230,7 +274,12 @@ body {
 .aquilo {
   display: flex;
   justify-content: space-evenly;
-  margin: 0;
+  margin-bottom: -1%;
+  margin-top: -6%;
+  margin-left: 40%;
+  margin-right: 40%;
+ 
+
 }
 
 .aquilo p {
@@ -240,21 +289,23 @@ body {
 .cerol {
   font-size: 35px;
   color: blue;
-  margin-left: 0; /* Ajustar margens */
+  margin-left: 20rem;
 }
 
 .praq {
   font-size: 35px;
+
 }
 
 .esquerda {
   display: flex;
   justify-content: center;
-  margin-left: 0; /* Ajustar margens */
+  margin-left: 2%;
+
 }
 
 .hora_ida {
-  text-align: left; /* Corrigir o alinhamento do texto */
+  text-align: 10px;
 }
 
 .rotasifpi {
@@ -268,3 +319,4 @@ body {
   width: 20rem;
   padding-bottom: 2rem;
 }
+/* tela de Horários */
