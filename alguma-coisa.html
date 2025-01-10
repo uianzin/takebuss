@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa Interativo com Rota - Picos, PI</title>
+
+  <!-- Incluir o CSS do Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <!-- Incluir o CSS do Leaflet Routing Machine (para rotas) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+
+  <!-- Incluir o CSS do Leaflet Control Geocoder (para pesquisa) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+  <style>
+    /* Definir o tamanho do mapa */
+    #map {
+      height: 600px;
+      width: 100%;
+    }
+
+    /* Estilo para a página */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Div para o mapa -->
+  <div id="map"></div>
+
+  <!-- Incluir o JavaScript do Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Incluir o JavaScript do Leaflet Routing Machine -->
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+  <!-- Incluir o JavaScript do Leaflet Control Geocoder -->
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+  <script>
+    // Criar o mapa e definir as coordenadas iniciais para Picos, PI
+    var map = L.map('map').setView([-7.0566, -41.4697], 13); // Coordenadas de Picos, PI
+
+    // Adicionar camada de mapa com OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Adicionar uma rota ao mapa utilizando o Leaflet Routing Machine
+    var routeControl = L.Routing.control({
+      waypoints: [
+        L.latLng(-7.0566, -41.4697), // Ponto de partida (Picos, PI)
+        L.latLng(-7.0700, -41.4800) // Ponto de chegada (outro local em Picos, PI)
+      ],
+      routeWhileDragging: true, // Permite que a rota seja alterada enquanto o usuário arrasta os pontos
+      geocoder: L.Control.Geocoder.nominatim() // Utiliza o Nominatim para geocodificação
+    }).addTo(map);
+
+    // Adicionar a funcionalidade de pesquisa para localizar qualquer lugar
+    var geocoder = L.Control.Geocoder.nominatim();
+    L.Control.geocoder({
+      position: 'topright', // Posiciona a barra de pesquisa no canto superior direito
+      geocoder: geocoder,
+      placeholder: 'Pesquise por um lugar...',
+      showResultIcons: false
+    }).addTo(map);
+  </script>
+
+</body>
+</html>
