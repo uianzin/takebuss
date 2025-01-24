@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/estilo.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <div class="container">
-        <div class="form-card">
-            <h1 class="form-title">Login</h1>
-            <form action="#" method="POST" class="form">
-                <div class="form-group">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" name="email" class="form-input" required>
-                </div>
-                <div class="form-group">
-                    <label for="senha" class="form-label">Senha</label>
-                    <input type="password" id="senha" name="senha" class="form-input" required>
-                </div>
-                <button type="submit" class="form-button">Entrar</button>
-                <p class="form-footer">Ainda não possui uma conta? <a href="index.html" class="form-link">Registre-se</a></p>
-            </form>
+  <div class="container">
+    <div class="form-card">
+      <h2 class="form-title">Login</h2>
+      <form class="form" action="/login" method="POST">
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-input" name="email" required>
         </div>
+        <div class="form-group">
+          <label for="password" class="form-label">Senha</label>
+          <input type="password" id="password" class="form-input" name="password" required>
+        </div>
+        <button href="mapa.html" type="submit" class="form-button">Entrar</button>
+      </form>
+      <div class="form-footer">
+        <p>Não tem uma conta? <a href="index.html" class="form-link">Cadastre-se</a></p>
+      </div>
     </div>
+  </div>
 </body>
 </html>
