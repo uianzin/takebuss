@@ -1,326 +1,114 @@
-
-
-/*body{
-  background-color: #11516e;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin: 0;
+/* Estrutura geral para padronização de telas */
+body {
   font-family: Arial, sans-serif;
-}
-*/
-.header_alinhamento {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.head_1 {
-  border-bottom: 2px solid rgb(0, 195, 255);
-  display: inline-block;
-}
-
-.head_2 {
-  border-bottom: 2px solid rgb(0, 67, 192);
-  display: inline-block;
-}
-
-.login_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 350px;
-  background-color: #f9f9f9;
-}
-
-.login_container h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
   color: #333;
 }
 
-.input_text {
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 94%;
-  max-width: 1000px;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
-.botao_registrar{
+
+.form-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
   width: 100%;
-  max-width: 1000px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 2px 0;
-}
-.botao_login, .botao_google {
-  width: 100%;
-  max-width: 100%;
-  padding: 3%;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 2% 0;
 }
 
-.botao_login {
-  background-color: #0130ff;
-  color: white;
-}
-
-.botao_login:hover {
-  background-color: #04a0e9;
-}
-
-.botao_google {
-  background-color: #db4437;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.botao_google:hover {
-  background-color: #c33c2e;
-}
-
-.google_icon {
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
-  background-color: white;
-  border-radius: 50%;
-  padding: 5px;
-}
-
-.botao_registrar {
-  background-color: #0f9d58;
-  color: white;
-}
-
-.botao_registrar:hover {
-  background-color: #0a7d45;
-}
-
-
-
-
-/*tela de teste*/
-
-#map{
-  height:23rem;
-  margin-top:1rem;
-  }  
-  
-  .cabeçalho_rota3 {
-      display: flex;
-      margin-left: 42rem;
-      font-size:1.5rem ;
-  }
-  .primeiro {
-  
-      border-style: solid;
-      border-top: none;
-      border-right: none;
-      border-left: none;
-      border-color: #0821e2;
-      display: flex;
-      justify-content: center;
-  }
-  
-  .segundo {
-      border-style: solid;
-      border-top: none;
-      border-right: none;
-      border-left: none;
-      border-color: cyan;
-      display: flex;
-      justify-content: center;
-  }
-  
-  .casa_tamanho ion-icon {
-      font-size: 2rem;
-      margin-top: -60px;
-      margin-right: 300px;
-      margin-left: 51rem;
-      display: flex;
-      justify-content: center;
-  }
-  
-  .onibus_tamanho ion-icon {
-       font-size: 2rem;
-       color: #0821e2;
-  }
-  
-  .seta ion-icon{
-       font-size: 2rem;
-  }
-  
-  .comunidade ion-icon{
-      font-size: 2rem;
-  }
-/*fim da tela teste*/
-
-.leaflet-person-icon {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
-  border-radius: 50%;
-  border: 2px solid #000;
-  font-size: 24px;
-}
-
-.leaflet-bus-icon {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: hsl(100, 10%, 20px); /* Cor do ônibus */
-  border-radius: 10px;
-
-  font-size: 32px; /* Tamanho do ícone */
-}
-
-/* tela de Horários */
-.contenho {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
-
-.ho {
-  border-style: solid;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-color: #0821e2;
-  display: flex;
-  justify-content: center;
-}
-
-.rar {
-  border-style: solid;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  border-color: cyan;
-  display: flex;
-  justify-content: center;
-}
-
-.nucleo {
-  display: flex;
+.form-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
   text-align: center;
-  justify-content: center;
-  margin-left: 9rem;
+  color: #555;
 }
 
-.casa_horarios {
-  margin-left: 1rem;
-  color: #fff;
-  font-size: 30px;
-}
-
-.home {
-  font-size: 25px;
-  color: white;
-  margin-left: 6rem;
-  margin-top: 1rem;
-}
-
-.horarios-rotas {
-  display: flex;  
-  justify-content: center;
-}
-
-.horarios {
-  background-color: #c7d7e8;
-}
-
-.tabela {
-  width: 200px;
-  border: 0px solid black;
-  padding: 25px;
-  margin: 0px;
-  text-align:center
-}
-
-.fechar {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-}
-
-.aquilo {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: -1%;
-  margin-top: -6%;
-  margin-left: 40%;
-  margin-right: 40%;
- 
-
-}
-
-.aquilo p {
-  margin: 15px;
-}
-
-.cerol {
-  font-size: 35px;
-  color: blue;
-  margin-left: 20rem;
-}
-
-.praq {
-  font-size: 35px;
-
-}
-
-.esquerda {
-  display: flex;
-  justify-content: center;
-  margin-left: 2%;
-
-}
-
-.hora_ida {
-  text-align: 10px;
-}
-
-.rotasifpi {
+.form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 15px;
 }
 
-.img-rotas {
-  width: 20rem;
-  padding-bottom: 2rem;
-  
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
-/* tela de Horários */
 
+.form-label {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #666;
+}
 
+.form-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  border-color: #007bff;
+}
+
+.form-button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+.form-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.form-link {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.form-link:hover {
+  color: #0056b3;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .form-card {
+      padding: 15px;
+  }
+
+  .form-title {
+      font-size: 1.2rem;
+  }
+
+  .form-input {
+      font-size: 0.9rem;
+      padding: 8px;
+  }
+
+  .form-button {
+      font-size: 0.9rem;
+      padding: 8px 12px;
+  }
+}
