@@ -27,10 +27,52 @@
       margin: 0;
       padding: 0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
       background-color: #f0f0f0;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px;
+      padding: 10px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .routes-list {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: white;
+    }
+
+    .routes-list ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .routes-list li {
+      margin: 5px 0;
     }
   </style>
 </head>
@@ -38,6 +80,20 @@
 
   <!-- Div para o mapa -->
   <div id="map"></div>
+
+  <!-- Controles para salvar e carregar rotas -->
+  <div class="controls">
+    <button id="saveRoute">Salvar Rota</button>
+    <button id="loadRoute">Carregar Rota</button>
+    <button id="viewSavedRoutes">Ver Rotas Salvas</button>
+  </div>
+
+  <!-- Lista de rotas salvas -->
+  <div class="routes-list" id="savedRoutes" style="display: none;">
+    <h3>Rotas Salvas</h3>
+    <ul id="routesList"></ul>
+    <button id="closeRoutesList">Fechar</button>
+  </div>
 
   <!-- Incluir o JavaScript do Leaflet -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -57,22 +113,87 @@
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Adicionar uma rota ao mapa utilizando o Leaflet Routing Machine
+    // Adicionar controle de rotas ao mapa
     var routeControl = L.Routing.control({
       waypoints: [
         L.latLng(-7.0566, -41.4697), // Ponto de partida (Picos, PI)
-        L.latLng(-7.0700, -41.4800) // Ponto de chegada (outro local em Picos, PI)
+        L.latLng(-7.0700, -41.4800) // Ponto de chegada
       ],
       routeWhileDragging: true, // Permite que a rota seja alterada enquanto o usuário arrasta os pontos
-      geocoder: L.Control.Geocoder.nominatim() // Utiliza o Nominatim para geocodificação
+      geocoder: L.Control.Geocoder.nominatim(), // Utiliza o Nominatim para geocodificação
     }).addTo(map);
 
-    // Adicionar a funcionalidade de pesquisa para localizar qualquer lugar
-    var geocoder = L.Control.Geocoder.nominatim();
+    // Função para salvar os waypoints no localStorage
+    function saveRoute() {
+      var waypoints = routeControl.getWaypoints().map(function(waypoint) {
+        return {
+          lat: waypoint.latLng.lat,
+          lng: waypoint.latLng.lng
+        };
+      });
+
+      var savedRoutes = JSON.parse(localStorage.getItem('savedRoutes')) || [];
+      savedRoutes.push(waypoints);
+      localStorage.setItem('savedRoutes', JSON.stringify(savedRoutes));
+      alert('Rota salva com sucesso!');
+    }
+
+    // Função para carregar os waypoints do localStorage
+    function loadRoute() {
+      var savedRoutes = JSON.parse(localStorage.getItem('savedRoutes'));
+
+      if (savedRoutes && savedRoutes.length > 0) {
+        var waypoints = savedRoutes[savedRoutes.length - 1].map(function(point) {
+          return L.latLng(point.lat, point.lng);
+        });
+
+        routeControl.setWaypoints(waypoints);
+        alert('Última rota carregada com sucesso!');
+      } else {
+        alert('Nenhuma rota salva encontrada!');
+      }
+    }
+
+    // Função para exibir as rotas salvas
+    function viewSavedRoutes() {
+      var savedRoutes = JSON.parse(localStorage.getItem('savedRoutes'));
+      var routesList = document.getElementById('routesList');
+      routesList.innerHTML = '';
+
+      if (savedRoutes && savedRoutes.length > 0) {
+        savedRoutes.forEach(function(route, index) {
+          var listItem = document.createElement('li');
+          listItem.textContent = 'Rota ' + (index + 1);
+          listItem.addEventListener('click', function() {
+            var waypoints = route.map(function(point) {
+              return L.latLng(point.lat, point.lng);
+            });
+            routeControl.setWaypoints(waypoints);
+            alert('Rota ' + (index + 1) + ' carregada no mapa!');
+          });
+          routesList.appendChild(listItem);
+        });
+        document.getElementById('savedRoutes').style.display = 'block';
+      } else {
+        alert('Nenhuma rota salva encontrada!');
+      }
+    }
+
+    // Fechar a lista de rotas
+    document.getElementById('closeRoutesList').addEventListener('click', function() {
+      document.getElementById('savedRoutes').style.display = 'none';
+    });
+
+    // Adicionar eventos aos botões
+    document.getElementById('saveRoute').addEventListener('click', saveRoute);
+    document.getElementById('loadRoute').addEventListener('click', loadRoute);
+    document.getElementById('viewSavedRoutes').addEventListener('click', viewSavedRoutes);
+
+    // Adicionar funcionalidade de pesquisa ao mapa
     L.Control.geocoder({
       position: 'topright', // Posiciona a barra de pesquisa no canto superior direito
-      geocoder: geocoder,
       placeholder: 'Pesquise por um lugar...',
+      geocoder: L.Control.Geocoder.nominatim(),
       showResultIcons: false
     }).addTo(map);
   </script>
